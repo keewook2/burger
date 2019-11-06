@@ -9,10 +9,12 @@
                 {{#each burgers}}
                     {{#unless devoured}}
                         <p>
+                            <form method="PUT" action="api/burgers/update">
                             {{id}}. {{burger_name}}
-                            <button class="devour_btn" data-id="{{id}}" data-devour="true">
+                            <button class="devour_btn btn btn-primary" data-id="{{this.id}}" data-devour="true">
                                 {{#unless devoured}}Devour it!{{/unless}}
                             </button>
+                            </form>
                         </p>
                     {{/unless}}
                 {{/each}}
