@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h1>Eat-Da-Burger!</h1></div>
+    </div>
+    
+    <div class="row">
+        <div class="offset-3 col-3">
+            <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <p>
+                            {{id}}. {{burger_name}}
+                            <button class="devour_btn" data-id="{{id}}" data-devour="true">
+                                {{#unless devoured}}Devour it!{{/unless}}
+                            </button>
+                        </p>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    
+        <div class="col-3">
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <p> {{id}}.  {{burger_name}}</p>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-3 col-6">
+            <form action="/api/burgers" method="POST">
+                <input type="text" class="form-control" name="burger_name" id="burger_textbox">
+                <button type="submit" class="btn btn-primary" id="submit_btn">Submit</button>
+            </form>
+            <p>Enter a burger you want to eat, Click the "Submit" button</p>
+        </div>
+    </div>
+</div>
